@@ -1,0 +1,15 @@
+live-boot
+live-config
+live-config-systemd
+user-setup
+systemd-sysv
+sudo
+locales
+ca-certificates
+curl
+gnupg
+less
+nano
+htop
+bash-completion
+fwupd

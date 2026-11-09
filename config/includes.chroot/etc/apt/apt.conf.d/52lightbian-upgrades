@@ -1,0 +1,6 @@
+// Debian security updates are already on by default. This adds the VPN apps.
+Unattended-Upgrade::Origins-Pattern {
+  "site=pkgs.tailscale.com";
+  "site=repo.mullvad.net";
+  "site=repo.protonvpn.com";
+};

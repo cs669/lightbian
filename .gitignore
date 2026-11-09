@@ -1,0 +1,5 @@
+build/
+out/
+*.iso
+config/includes.chroot_before_packages/usr/share/keyrings/*
+!config/includes.chroot_before_packages/usr/share/keyrings/.keep

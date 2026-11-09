@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+systemctl enable nftables.service
+systemctl enable apparmor.service
+systemctl enable iwd.service
+systemctl enable unattended-upgrades.service
+# No SSH server ships, so there's nothing listening for remote logins.
+# The VPN daemons are installed but you pick which one to turn on.
+systemctl disable tailscaled.service 2>/dev/null || true
+systemctl disable mullvad-daemon.service 2>/dev/null || true

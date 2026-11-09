@@ -1,0 +1,8 @@
+tailscale
+mullvad-vpn
+wireguard-tools
+# Proton's Linux app is only built for x86_64. On ARM, use Proton's
+# WireGuard config files with NetworkManager instead.
+#if ARCHITECTURES amd64
+proton-vpn-gnome-desktop
+#endif

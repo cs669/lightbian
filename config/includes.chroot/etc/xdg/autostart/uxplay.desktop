@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=AirPlay receiver
+Comment=Lets phones and Macs on your home network AirPlay to this box
+Exec=uxplay -n Lightbian -nh -p
+X-GNOME-Autostart-enabled=true

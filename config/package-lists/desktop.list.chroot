@@ -1,0 +1,36 @@
+# Light Xfce desktop, so any browser task works
+xserver-xorg
+lightdm
+lightdm-gtk-greeter
+xfce4
+xfce4-terminal
+xfce4-pulseaudio-plugin
+xfce4-power-manager
+xfce4-notifyd
+xfce4-screenshooter
+thunar-volman
+mousepad
+ristretto
+lxpolkit
+dbus-x11
+gvfs
+gvfs-backends
+udisks2
+xdg-desktop-portal
+xdg-desktop-portal-gtk
+adwaita-icon-theme
+fonts-noto-core
+fonts-noto-color-emoji
+
+# Network and Wi-Fi
+network-manager
+network-manager-gnome
+iwd
+wireless-regdb
+
+# Sound and Bluetooth
+pipewire-audio
+wireplumber
+pavucontrol
+bluez
+blueman

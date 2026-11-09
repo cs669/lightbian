@@ -1,0 +1,36 @@
+#!/bin/sh
+# Lightbian live-build config. ARCH comes from build.sh (amd64 or arm64).
+set -e
+
+ARCH="${ARCH:-amd64}"
+NAME="lightbian"
+
+case "$ARCH" in
+  amd64) BOOTLOADERS="grub-efi,syslinux" ;;  # UEFI and old BIOS machines
+  arm64) BOOTLOADERS="grub-efi" ;;           # ARM boxes only boot UEFI
+  *) echo "unsupported ARCH: $ARCH" >&2; exit 1 ;;
+esac
+
+# Kernel hardening flags used on the live system. The installed system gets
+# the same ones from /etc/default/grub.d/90-lightbian-hardening.cfg.
+HARDEN="slab_nomerge init_on_alloc=1 page_alloc.shuffle=1 randomize_kstack_offset=on vsyscall=none"
+
+lb config noauto \
+  --distribution trixie \
+  --architecture "$ARCH" \
+  --linux-flavours "$ARCH" \
+  --archive-areas "main contrib non-free non-free-firmware" \
+  --security true \
+  --updates true \
+  --apt-recommends false \
+  --firmware-chroot true \
+  --firmware-binary true \
+  --binary-images iso-hybrid \
+  --bootloaders "$BOOTLOADERS" \
+  --debian-installer none \
+  --iso-application "Lightbian" \
+  --iso-volume "LIGHTBIAN" \
+  --image-name "${NAME}-${ARCH}" \
+  --bootappend-live "boot=live components toram quiet splash hostname=${NAME} username=media ${HARDEN}" \
+  --cache true \
+  "${@}"

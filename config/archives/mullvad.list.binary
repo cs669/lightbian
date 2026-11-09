@@ -1,0 +1,1 @@
+deb [signed-by=/usr/share/keyrings/mullvad-keyring.asc] https://repo.mullvad.net/deb/stable stable main

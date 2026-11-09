@@ -1,0 +1,34 @@
+# Browsers. Chromium is here because tab casting to a Chromecast only works in it.
+firefox-esr
+chromium
+
+# Players and the TV style front end
+kodi
+kodi-inputstream-adaptive
+mpv
+vlc
+ffmpeg
+yt-dlp
+gstreamer1.0-plugins-good
+gstreamer1.0-plugins-bad
+gstreamer1.0-plugins-ugly
+gstreamer1.0-libav
+gstreamer1.0-vaapi
+gstreamer1.0-pipewire
+
+# Hardware video decoding
+vainfo
+mesa-va-drivers
+mesa-vulkan-drivers
+#if ARCHITECTURES amd64
+intel-media-va-driver-non-free
+i965-va-driver
+#endif
+
+# Casting. catt sends to Chromecasts, gnome-network-displays does Miracast,
+# UxPlay lets phones AirPlay to this box.
+catt
+gnome-network-displays
+uxplay
+avahi-daemon
+libnss-mdns

@@ -1,0 +1,9 @@
+apparmor
+apparmor-utils
+apparmor-profiles
+apparmor-profiles-extra
+nftables
+cryptsetup
+cryptsetup-initramfs
+unattended-upgrades
+apt-listchanges

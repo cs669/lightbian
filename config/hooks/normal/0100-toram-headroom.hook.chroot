@@ -1,0 +1,14 @@
+#!/bin/sh
+# live-boot's "toram" already skips the RAM copy when the image won't fit and
+# keeps running from the USB stick. Out of the box it'll still copy even if
+# that leaves almost no memory free. This makes it keep 2 GiB spare.
+set -e
+for F in /usr/lib/live/boot/9990-toram-todisk.sh /lib/live/boot/9990-toram-todisk.sh; do
+  [ -f "$F" ] && break
+done
+if grep -q 'if \[ "${freespace}" -lt "${size}" \]' "$F"; then
+  sed -i 's/if \[ "${freespace}" -lt "${size}" \]/if [ "${freespace}" -lt "$((size + 2097152))" ]/' "$F"
+  update-initramfs -u -k all
+else
+  echo "WARNING: live-boot changed, toram headroom patch not applied" >&2
+fi
